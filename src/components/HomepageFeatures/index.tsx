@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Tzap was designed from the ground up to be easily installed and
+        to get started with your code discovery and generation.
       </>
     ),
   },
@@ -24,18 +24,17 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Tzap lets you focus on your code and never leaving your code environment, and we&apos;ll even do the prompting chores. Go
+        ahead and just run <code>tzap</code> in your code directory.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Powered by Golang',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Extend or customize your apps by reusing Tzap.-+9
       </>
     ),
   },

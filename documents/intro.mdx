@@ -1,0 +1,115 @@
+---
+sidebar_position: 1
+---
+
+# Tutorial Introduction
+
+Let's discover **Tzap in less than 5 minutes**. 
+
+Tzap enables semantic search of code and can also be a rubberducky for how to navigate complex tasks in your code. 
+
+## Getting Started
+
+Get started by **navigating to your code project** in a terminal.
+
+```bash
+~/code $ cd yourproject
+```
+
+### Choose installation method
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="bash" label="bash" default>
+
+To install on linux or mac by running this script from the terminal.
+```bash
+curl -L https://tzap.io/sh | bash
+```
+
+  </TabItem>
+  <TabItem value="npm" label="npm/npx">
+
+This method requires [Node.js](https://nodejs.org/en/download/) to be installed. 
+
+### Method 1: Install global pcakage:
+```bash
+sudo npm install -g tzap
+```
+
+### Method 2: Run directly
+It's possible to run Tzap without installation by prepending npx before the tzap command. NodeJS is still a requirement for this method. 
+```bash
+npx tzap --help
+```
+
+#### Troubleshooting: 
+Using npm/npx requires that the environment variable PATH is set correctly. Read more...
+
+  </TabItem>
+   <TabItem value="macos" label="macOS">
+To install the Tzap CLI without a package manager:
+
+- Download the latest linux tar.gz file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+
+- Find the file and architecture you need.
+
+- (Optional) Rename the tzap file.
+
+- Either run ./tzap directly or install it to a location in your $PATH.
+
+
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+
+To install the Tzap CLI without a package manager:
+
+- Download the latest linux tar.gz file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+
+- Find the file and architecture you need.
+
+- (Optional) Rename the tzap file.
+
+- Either run ./tzap directly or install it to for instance /usr/local/bin or another location in your $PATH.
+
+
+  </TabItem>
+</Tabs>
+
+
+
+## Your first tzap prompt
+
+Tzap prompt looks at your code and then answers your code generation related questions. The more detail you add, the more focused Tzaps answer will be. 
+
+Imagine that you have a file called `src/models/user.tsx` and want to add an email property to the model. To do this 
+
+```bash
+tzap prompt "Add email to the user model"
+```
+
+The classic template will automatically be added to your project after you run the command:
+
+```bash
+npm init docusaurus@latest my-website classic
+```
+
+You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+
+The command also installs all necessary dependencies you need to run Docusaurus.
+
+## Start your site
+
+Run the development server:
+
+```bash
+cd my-website
+npm run start
+```
+
+The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+
+The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+
+Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
