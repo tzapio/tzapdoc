@@ -1,0 +1,158 @@
+---
+sidebar_position: 2
+title: Editor support
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Using Tzap with Editors
+
+Some commands such as `prompt` utilize your code editor to streamline the use of Tzap.
+
+Usually a file is created where you can change completions and prompts.
+
+
+<Tabs defaultValue="vscode" className="config-tabs">
+  <TabItem value="stdin" label="stdin">
+
+By default Tzap is configured to take follow up prompts from the terminal it runs in:
+
+```json title=".tzap-data/config.json"
+{
+  "editor":"stdin"
+}
+```
+
+**Example**
+
+```text
+~/code/yourproject $ tzap prompt "<your prompt>"
+
+Search Result: ...
+
+---Completion:
+...
+---
+
+// highlight-start
+Follow up prompt: <your next prompt>
+// highlight-end
+```
+
+  </TabItem>
+  <TabItem value="vscode" label="Visual Studio Code">
+
+You can configure Tzap to open up a prompt file in vscode by configuring config.json as follows:
+
+```json title=".tzap-data/config.json"
+{
+  "editor":"vscode"
+}
+```
+
+** Prompt file**
+
+If the vscode terminal cli command `code`is available then Tzap will create and open up the prompt file in vscode.
+
+```text title=".tzap-data/chats/tzapchange9993.md"
+<write here>
+---
+@role:assistant
+Do the following changes ...
+---
+@role:user
+How do we implement stripe in our backend?
+
+```
+
+**Example**
+
+```text
+~/code/yourproject $ tzap prompt "<your prompt>"
+
+Search Result: ...
+
+---Completion:
+...
+---
+
+// highlight-start
+Continue the prompt by changing the file: .tzap-data/chats/tzapchange9993.md
+
+Watch mode: write at top of file and hit save 3 times in 1 seconds to trigger re-prompt. 
+// highlight-end
+```
+
+
+
+  </TabItem>
+  <TabItem value="vim" label="Vim">
+
+You can configure Tzap to open up a prompt file in vim by configuring config.json as follows:
+
+```json title=".tzap-data/config.json"
+{
+  "editor":"vim"
+}
+```
+
+  </TabItem>
+  <TabItem value="nano" label="Nano">
+
+You can configure Tzap to open up a prompt file in nano by configuring config.json as follows:
+
+```json title=".tzap-data/config.json"
+{
+  "editor":"nano"
+}
+```
+
+  </TabItem>
+  <TabItem value="editors" label="Other editors">
+
+For other editors, Tzap can be configured to provide a file that can be edited.
+
+```json title=".tzap-data/config.json"
+{
+  "editor":"editor"
+}
+```
+
+
+** Prompt file**
+
+For other editors, Tzap will create a prompt file that can be edited for follow up prompts.
+
+```text title=".tzap-data/chats/tzapchange9993.md"
+<write here>
+---
+@role:assistant
+Do the following changes ...
+---
+@role:user
+How do we implement stripe in our backend?
+
+```
+
+**Example**
+
+```text
+~/code/yourproject $ tzap prompt "<your prompt>"
+
+Search Result: ...
+
+---Completion:
+...
+---
+
+// highlight-start
+Continue the prompt by changing the file: .tzap-data/chats/tzapchange9993.md
+
+Watch mode: write at top of file and hit save 3 times in 1 seconds to trigger re-prompt. 
+// highlight-end
+```
+
+
+  </TabItem>
+</Tabs>
