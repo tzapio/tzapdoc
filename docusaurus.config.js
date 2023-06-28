@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Tzap',
-  tagline: 'Find what you need, do stuff with it',
+  tagline: 'Find what you need and make stuff with it using Tzap & OpenAI',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -68,7 +68,7 @@ const config = {
         title: 'Tzap',
         logo: {
           alt: 'Tzap',
-          src: 'img/logo.svg',
+          src: 'img/logo_whiteonblack_180.png',
         },
         items: [
           {
@@ -101,15 +101,15 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/tzap',
+                label: 'Reddit',
+                href: 'https://reddit.com/r/tzap',
               },
               {
                 label: 'Discord',
                 href: 'https://discord.gg/TfHa9eMB',
               },
               {
-                label: 'Twitter',
+                label: 'NPM',
                 href: 'https://npm.org/tzap',
               },
               {
@@ -127,7 +127,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/tzapio/tzap',
               },
             ],
           },

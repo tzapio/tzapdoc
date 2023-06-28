@@ -34,7 +34,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your apps by reusing Tzap.-+9
+        Extend or customize your apps by reusing Tzap. Tzap can be extended with bash, Golang templates and Go code. 
       </>
     ),
   },

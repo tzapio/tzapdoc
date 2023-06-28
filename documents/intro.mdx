@@ -2,19 +2,11 @@
 sidebar_position: 1
 ---
 
-# Tutorial Introduction
+# Getting started
 
 Let's discover **Tzap in less than 5 minutes**. 
 
-Tzap enables semantic search of code and can also be a rubberducky for how to navigate complex tasks in your code. 
-
-## Getting Started
-
-Get started by **navigating to your code project** in a terminal.
-
-```bash
-~/code $ cd yourproject
-```
+Tzap enables semantic search of code and is a great rubberducky that helps you navigate complex tasks in your code. 
 
 ### Choose installation method
 import Tabs from '@theme/Tabs';
@@ -31,33 +23,37 @@ curl -L https://tzap.io/sh | bash
   </TabItem>
   <TabItem value="npm" label="npm/npx">
 
+**Using NodeJS package managers npm/npx**
+
 This method requires [Node.js](https://nodejs.org/en/download/) to be installed. 
 
-### Method 1: Install global pcakage:
 ```bash
 sudo npm install -g tzap
 ```
 
-### Method 2: Run directly
+:::tip Run Tzap directly using NPX
 It's possible to run Tzap without installation by prepending npx before the tzap command. NodeJS is still a requirement for this method. 
 ```bash
 npx tzap --help
 ```
-
+:::
 #### Troubleshooting: 
-Using npm/npx requires that the environment variable PATH is set correctly. Read more...
+Using npm/npx requires that the environment variable PATH is set correctly.
 
   </TabItem>
    <TabItem value="macos" label="macOS">
 To install the Tzap CLI without a package manager:
 
-- Download the latest linux tar.gz file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+- Download the latest binary file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
 
 - Find the file and architecture you need.
+  - Macs with M1 and M2 chips use the arm64 architecture.
+  - Macs without Apple Silicon use the amd64 architecture.
 
-- (Optional) Rename the tzap file.
-
-- Either run ./tzap directly or install it to a location in your $PATH.
+- Either run ./tzap directly or install it to a location in your $PATH like /usr/local/bin.
+```bash
+sudo mv tzap-darwin-[replace with arm64 or amd64] /usr/local/bin/tzap
+```
 
 
   </TabItem>
@@ -65,51 +61,95 @@ To install the Tzap CLI without a package manager:
 
 To install the Tzap CLI without a package manager:
 
-- Download the latest linux tar.gz file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+- Download the latest binary file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
 
 - Find the file and architecture you need.
 
-- (Optional) Rename the tzap file.
-
 - Either run ./tzap directly or install it to for instance /usr/local/bin or another location in your $PATH.
-
+```bash
+sudo mv tzap-linux-[replace with amd64 or arm64] /usr/local/bin/tzap
+```
 
   </TabItem>
 </Tabs>
 
+## Simple setup
 
+To get started with Tzap start with **navigating to your code project** in a terminal.
+
+```bash
+~/code $ cd yourproject
+```
 
 ## Your first tzap prompt
 
-Tzap prompt looks at your code and then answers your code generation related questions. The more detail you add, the more focused Tzaps answer will be. 
+Tzap prompt looks at your code and then answers your code generation related questions. 
 
-Imagine that you have a file called `src/models/user.tsx` and want to add an email property to the model. To do this 
+The more detail you add, the more focused Tzaps answer will be. 
+
+Imagine that you have a file called `src/models/user.tsx` and want to add an email property to the model. 
+
+To do this use the following:
+```text
+~/code/yourproject $ tzap prompt "Add email to the user model"
+Search result:
+        src/model/user.tsx:1
+        src/controller/user.tsx:10
+        src/service/userService.tsx:43
+
+--- Completion
+// highlight-start
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+// highlight-end 
+---
+```
+:::tip Write to file
+There are `tzap` commands such as [`refactor`](basics/refactor), [`editdir`](basics/editdir) that write directly to file. For prompt specifically, we are currently developing prompt to be able to write directly to file.
+:::
+
+
+## Search
+
+Tzap can also be used to search for code.
 
 ```bash
-tzap prompt "Add email to the user model"
+~/code/yourproject $ tzap search "user model"
+
+Search result:
+        src/model/user.tsx:1
+        src/controller/user.tsx:10
+        src/service/userService.tsx:43
 ```
 
-The classic template will automatically be added to your project after you run the command:
+You can then in most editors hover and click these links like any other error message in the IDE
+
+## Configure files to index
+
+To configure Tzap for your project start with **navigating to your code project** in a terminal.
 
 ```bash
-npm init docusaurus@latest my-website classic
+~/code $ cd yourproject
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+Tzap is configured to work without any configuration. Tzap it will index most common languages. 
 
 ```bash
-cd my-website
-npm run start
+~/code/yourproject $ tzap init
 ```
+This will create `.tzapinclude` and `.tzapignore` files. You can then use these files to include or exclude files from being indexed. `.tzapignore` will filter out files even if they are included in `.tzapinclude`.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+You can read more about how Tzap file indexing works here.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+## Troubleshooting
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+### What files does Tzap look at?
+Without any configuration Tzap looks at common programming languages. (Add link to languages)
+
+You can run `tzap init` which will create a .tzapinclude and .tzapignore files. `.tzapignore` and `.gitignore` are first used to remove files from being indexed
