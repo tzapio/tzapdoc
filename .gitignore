@@ -3,7 +3,7 @@
 
 # Production
 /build
-
+build
 # Generated files
 .docusaurus
 .cache-loader
@@ -18,3 +18,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.env
+.tzap-data
