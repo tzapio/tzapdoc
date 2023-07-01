@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[7622],{6935:a=>{a.exports=JSON.parse('{"label":"hello","permalink":"/tzapdoc/blog/tags/hello","allTagsPath":"/tzapdoc/blog/tags","count":2}')}}]);
