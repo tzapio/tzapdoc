@@ -14,27 +14,25 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Tzap was designed from the ground up to be easily installed and
-        to get started with your code discovery and generation.
+        Generate documentation for whole directories, clean up files, generate new ideas, all with simple <code>cli</code> commands
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Stay in your environment',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Tzap lets you focus on your code and never leaving your code environment, and we&apos;ll even do the prompting chores. Go
-        ahead and just run <code>tzap</code> in your code directory.
+        Focus on your code and never leaving your code environment like <code>vscode</code>, <code>vim</code> or any editor through <code>prompt files</code> and <code>cli commands</code>.
       </>
     ),
   },
   {
-    title: 'Powered by Golang',
+    title: 'Open Source',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your apps by reusing Tzap. Tzap can be extended with bash, Golang templates and Go code. 
+        Tzap is an open source project and can be used to write custom <code>code generators</code> for your projects.
       </>
     ),
   },
@@ -44,7 +42,7 @@ function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+       
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

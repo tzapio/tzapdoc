@@ -1,0 +1,155 @@
+---
+sidebar_position: 1
+---
+
+# Getting started
+
+Let's discover **Tzap in less than 5 minutes**. 
+
+Tzap enables semantic search of code and is a great rubberducky that helps you navigate complex tasks in your code. 
+
+### Choose installation method
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="bash" label="bash" default>
+
+To install on linux or mac by running this script from the terminal.
+```bash
+curl -L https://tzap.io/sh | bash
+```
+
+  </TabItem>
+  <TabItem value="npm" label="npm/npx">
+
+**Using NodeJS package managers npm/npx**
+
+This method requires [Node.js](https://nodejs.org/en/download/) to be installed. 
+
+```bash
+sudo npm install -g tzap
+```
+
+:::tip Run Tzap directly using NPX
+It's possible to run Tzap without installation by prepending npx before the tzap command. NodeJS is still a requirement for this method. 
+```bash
+npx tzap --help
+```
+:::
+#### Troubleshooting: 
+Using npm/npx requires that the environment variable PATH is set correctly.
+
+  </TabItem>
+   <TabItem value="macos" label="macOS">
+To install the Tzap CLI without a package manager:
+
+- Download the latest binary file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+
+- Find the file and architecture you need.
+  - Macs with M1 and M2 chips use the arm64 architecture.
+  - Macs without Apple Silicon use the amd64 architecture.
+
+- Either run ./tzap directly or install it to a location in your $PATH like /usr/local/bin.
+```bash
+sudo mv tzap-darwin-[replace with arm64 or amd64] /usr/local/bin/tzap
+```
+
+
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+
+To install the Tzap CLI without a package manager:
+
+- Download the latest binary file from [GitHub](https://github.com/tzapio/tzap/releases/latest).
+
+- Find the file and architecture you need.
+
+- Either run ./tzap directly or install it to for instance /usr/local/bin or another location in your $PATH.
+```bash
+sudo mv tzap-linux-[replace with amd64 or arm64] /usr/local/bin/tzap
+```
+
+  </TabItem>
+</Tabs>
+
+## Simple setup
+
+To get started with Tzap start with **navigating to your code project** in a terminal.
+
+```bash
+~/code $ cd yourproject
+```
+
+## Your first tzap prompt
+
+Tzap prompt looks at your code and then answers your code generation related questions. 
+
+The more detail you add, the more focused Tzaps answer will be. 
+
+Imagine that you have a file called `src/models/user.tsx` and want to add an email property to the model. 
+
+To do this use the following:
+```text
+~/code/yourproject $ tzap prompt "Add email to the user model"
+Search result:
+        src/model/user.tsx:1
+        src/controller/user.tsx:10
+        src/service/userService.tsx:43
+
+--- Completion
+// highlight-start
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+// highlight-end 
+---
+```
+:::tip Write to file
+There are `tzap` commands such as [`refactor`](basics/refactor), [`editdir`](basics/editdir) that write directly to file. For prompt specifically, we are currently developing prompt to be able to write directly to file.
+:::
+
+
+## Search
+
+Tzap can also be used to search for code.
+
+```bash
+~/code/yourproject $ tzap search "user model"
+
+Search result:
+        src/model/user.tsx:1
+        src/controller/user.tsx:10
+        src/service/userService.tsx:43
+```
+
+You can then in most editors hover and click these links like any other error message in the IDE
+
+## Configure files to index
+
+To configure Tzap for your project start with **navigating to your code project** in a terminal.
+
+```bash
+~/code $ cd yourproject
+```
+
+
+Tzap is configured to work without any configuration. Tzap it will index most common languages. 
+
+```bash
+~/code/yourproject $ tzap init
+```
+This will create `.tzapinclude` and `.tzapignore` files. You can then use these files to include or exclude files from being indexed. `.tzapignore` will filter out files even if they are included in `.tzapinclude`.
+
+You can read more about how Tzap file indexing works here.
+
+## Troubleshooting
+
+### What files does Tzap look at?
+Without any configuration Tzap looks at common programming languages. (Add link to languages)
+
+You can run `tzap init` which will create a .tzapinclude and .tzapignore files. `.tzapignore` and `.gitignore` are first used to remove files from being indexed

@@ -2,7 +2,6 @@
 sidebar_position: 2
 ---
 
-
 # Tzap commit (git)
 
 tzap CLI provides an array of tools to simplify the process of coding and documentation. One of these tools is the tzap CLI commit command, also referred to as semanticgitcommit. 

@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Tzap',
-  tagline: 'Find what you need and make stuff with it using Tzap & OpenAI',
+  title: 'The CLI rubberducky for Code Generation',
+  tagline: 'Say goodbye to copy pasting code and hello to whole code repository prompting',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -68,21 +68,24 @@ const config = {
         title: 'Tzap',
         logo: {
           alt: 'Tzap',
-          src: 'img/logo_whiteonblack_180.png',
+          src: 'img/drawing2.svg',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'gettingStartedSidebar',
             position: 'left',
-            label: 'Getting Started',
+            label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/tips', label: 'Tips', position: 'left'},
+          {to: '/community', label: 'Community', position: 'left'},
           {
             href: 'https://github.com/tzapio/tzap',
             label: 'GitHub',
             position: 'right',
           },
+          
         ],
       },
       footer: {
