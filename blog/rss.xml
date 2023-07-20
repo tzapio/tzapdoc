@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Simple codegen for all devs Blog</title>
+        <title>The CLI rubberducky for Code Generation Blog</title>
         <link>https://tzapio.github.io/tzapdoc/blog</link>
-        <description>Simple codegen for all devs Blog</description>
+        <description>The CLI rubberducky for Code Generation Blog</description>
         <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
